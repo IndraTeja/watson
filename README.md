@@ -1,5 +1,7 @@
 # django-IBM-Watson
 
+Click here to visit the blog: https://indra-watson1.herokuapp.com/
+
 Using IBM watson AI to perform below features:
 
 ## ToneAnalyzerV3
