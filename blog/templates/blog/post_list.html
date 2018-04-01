@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+   {% for post in posts %}
+       <div class="post">
+           <div class="date">
+               {{ post.published_date }}
+           </div>
+           <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+           <p>{{ post.text|linebreaksbr }}</p><span style="background-color:yellow">Watson Says:</span>
+        <p>Anger : {{ post.angerScore }} |
+        Disgust : {{ post.disgustScore }} |
+        Fear : {{ post.fearScore }} |
+        Joy : {{ post.joyScore }} |
+        Sad : {{ post.sadScore }}</p>
+
+           <!--<p>{{post.obj2 }}</p>-->
+
+
+           <h4><span style="background-color:yellow">Translation in German:</span></h4>
+           <p>{{ post.translate_spanish}}</p>
+           <p>Word Count = {{ post.wordcount}}  |  Character Count = {{ post.charactercount}}</p>
+
+
+           <!--<p> {{ post.obj3}}</p>-->
+
+           <h4> <span style="background-color:yellow">Author Personality Insights: </span></h4>
+           <p> Displaying only significant characteristic scores which are higher than 0.5 </p>
+           <h5><b><span style="background-color:yellow">Author Personality Characteristics:</span></b></h5>
+
+           <!--<p> personlity ; {{ post.personlity}}</p>-->
+           <p> {{ post.pstring}}</p>
+
+           <!--<p> needs ; {{ post.needs}}</p>-->
+           <!--<p>needlist ; {{post.needslist}}</p>-->
+           <h5><span style="background-color:yellow"><b>NEEDS:</b></span></h5>
+           <p> {{ post.needstring}}</p>
+
+           <!--<h5><span style="background-color:yellow"><b>VALUES:</b></span></h5>-->
+           <!--<p> values ; {{ post.values}}</p>-->
+           <!--<p> valuelist; {{ post.valuelist}}</p>-->
+           <!--<p> {{ post.valuestring}}</p>-->
+
+       </div>
+   {% endfor %}
+{% endblock %}
